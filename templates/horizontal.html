@@ -1,0 +1,130 @@
+<style>
+    .body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 10px;
+        font-family: 'DM Sans', sans-serif;
+    }
+    
+    input[type=radio] {
+        display: none;
+    }
+    
+    .container-slider {
+        position: relative;
+        transform-style: preserve-3d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .cards {
+        position: relative;
+        width: 251px;
+        height: 120px;
+        border-radius:10px;
+    }
+    
+    .card {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transition: transform .4s ease;
+        cursor: pointer;
+        overflow: hidden;
+        border-radius:20px
+    }
+    
+    .img-item {
+        width: 251px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    
+    input[name^="slider-"]:nth-of-type(1):checked ~ .cards .card:nth-of-type(3),
+    input[name^="slider-"]:nth-of-type(2):checked ~ .cards .card:nth-of-type(1),
+    input[name^="slider-"]:nth-of-type(3):checked ~ .cards .card:nth-of-type(2) {
+        transform: translateX(-40%) scale(.8);
+        opacity: .4;
+        z-index: 0;
+    }
+    
+    input[name^="slider-"]:nth-of-type(1):checked ~ .cards .card:nth-of-type(2),
+    input[name^="slider-"]:nth-of-type(2):checked ~ .cards .card:nth-of-type(3),
+    input[name^="slider-"]:nth-of-type(3):checked ~ .cards .card:nth-of-type(1) {
+        transform: translateX(40%) scale(.8);
+        opacity: .4;
+        z-index: 0;
+    }
+    
+    input[name^="slider-"]:nth-of-type(1):checked ~ .cards .card:nth-of-type(1),
+    input[name^="slider-"]:nth-of-type(2):checked ~ .cards .card:nth-of-type(2),
+    input[name^="slider-"]:nth-of-type(3):checked ~ .cards .card:nth-of-type(3) {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+        z-index: 1;
+    }
+    
+    .control-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 1);
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 2;
+    }
+    
+    .prev-button {
+        left: 0px;
+    }
+    
+    .next-button {
+        right: 0px;
+    }
+    </style>
+    
+    <div class="body">
+        <div class="container-slider" id="slider-{{ slider_id }}">
+            {% for image_path in horizontal_image_paths %}
+                <input type="radio" name="slider-{{ slider_id }}" id="item-{{ slider_id }}-{{ loop.index }}" {% if loop.first %}checked{% endif %}>
+            {% endfor %}
+            <div class="cards">
+                {% for image_path in horizontal_image_paths %}
+                    <label class="card" for="item-{{ slider_id }}-{{ loop.index }}">
+                        <img class="img-item" 
+                             src="{{ url_for('static', filename=image_path) }}"
+                             alt="Image {{ loop.index }}">
+                    </label>
+                {% endfor %}
+            </div>
+            <button class="control-button prev-button" onclick="prevSlide('{{ slider_id }}')">&#60;</button>
+            <button class="control-button next-button" onclick="nextSlide('{{ slider_id }}')">&#62;</button>
+        </div>
+    
+        <script>
+            function changeSlide(sliderId, index) {
+                const container = document.getElementById(`slider-${sliderId}`);
+                const slides = container.querySelectorAll(`input[name="slider-${sliderId}"]`);
+                const currentIndex = Array.from(slides).findIndex(slide => slide.checked);
+                const nextIndex = (currentIndex + index + slides.length) % slides.length;
+                slides[nextIndex].checked = true;
+            }
+    
+            function prevSlide(sliderId) {
+                changeSlide(sliderId, -1);
+            }
+    
+            function nextSlide(sliderId) {
+                changeSlide(sliderId, 1);
+            }
+        </script>
+    </div>

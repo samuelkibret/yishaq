@@ -1,0 +1,20 @@
+{% macro horizontal_component(component_images, slider_id) %}
+    {% with horizontal_image_paths = component_images, slider_id = slider_id %}
+        {% include 'horizontal.html' %}
+    {% endwith %}
+{% endmacro %}
+{% macro text_reader_macro(file_path)%}
+    {% set paragraph = text_reader(file_path) %}
+    <p class = "paragraph-text" style="color:#FFF;">
+    {{paragraph}}
+    </p>
+{% endmacro%}
+<style>
+    .paragraph-text {
+        color: #FFF;
+        font-size:10px
+        text-align: justify;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+</style>

@@ -1,0 +1,30 @@
+{% set list = Base['component_side_names']['events'] %}
+<div class="border-0" style="max-height: none; max-width: 520px; background-image:{{gradient}}">
+  <!-- Tabs -->
+  <nav>
+    <div class="nav nav-tabs d-flex" id="nav-tab" role="tablist">
+      {% for item in list %}
+        {% set btn = item.replace(" ","-") %}
+        <button style = "{{btn_style_active}}" class="nav-link {% if loop.index == 1 %}active{% endif %}" id="nav-{{btn}}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{btn}}" type="button" role="tab" aria-controls="nav-{{btn}}" aria-selected="{% if loop.index == 1 %}true{% else %}false{% endif %}">
+          {{btn}}
+        </button>
+        <button class="control-button next-button" style="top :755px; left:1020px; height:60px">&#62;</button>
+      {% endfor %}
+    </div>
+  </nav>
+
+  <!-- Tab Content -->
+  <div class="tab-content" id="nav-tabContent">
+    {% for panel in list %}
+      {% set tab = panel.replace(" ", "-") %}
+      <div class="tab-pane fade {% if loop.index == 1 %}show active{% endif %}" id="nav-{{tab}}" role="tabpanel" aria-labelledby="nav-{{tab}}-tab">
+        <!-- Carousel -->
+        {{ horizontal_component(img['events']['Armed Conflicts'],'Armed Conflicts') }}
+        <!-- Text content -->
+        <div>
+          {{text_reader_macro(txt['events']['Armed Conflicts'][0])}}  
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

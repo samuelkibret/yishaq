@@ -1,0 +1,56 @@
+{%set list =  Base['component_main_names']['Assessments']%}
+{%set Assessment_paragrap_1 = 'There have been several changes to buildings in Massawa due to several circumstances. One of the significant incidents that changed the urban fabric of the port was the Independence War. During this time, most of the southeast part of the city was severely damaged, changing the entire urban fabric.'%}
+{%set Assessment_paragrap_2 = 'Some of the buildings in the city, such as Banca d’Italia, have been severely deteriorated during the independence war and haven’t been maintained appropriately. In contrast, some parts of the city have been kept intact and in fairly good condition. There have also been some additions to the site. Most of the new additions to the site outside of the ring road were demolished, maintaining the original urban fabric of the city. Overall, a detailed study on additions and alterations in the port city is required to understand the overall change and further quantify the percentage of site parts that have been altered or are in good condition. more ...'%}
+
+<div class="mb-3 border-0 rounded-top-right rounded-bottom-left" style="background-image:{{gradient}}; border-radius:0px 50px 50px 0px">
+  <div>
+    <div class="tab-content pb-5 pt-3" id="nav-tabContent">
+      {% for panel in list %}
+        {% set tab = panel.replace(" " , "-") %}
+        {% if loop.index == 1 %}
+          <div class="tab-pane fade show active container" id="nav-{{tab}}" role="tabpanel" aria-labelledby="nav-{{tab}}-tab">
+            <div class="row">
+              <div class="col-md-6 d-flex align-items-center">
+                <div class = "d-flex align-items-center justify-content-center" style = "width:800px; height: 350px;background-color: rgba(255, 255, 255, 0.08); border-radius:50px">
+                  {{ horizontal_component(img['Assessments']['Recycling & re-use'],'Recycling-&-re-use') }}
+                </div>
+              </div>
+              <div class = "col-md-6 ps-2">
+                {{text_reader_macro( txt['Assessments']['Recycling & re-use'][0])}}
+              </div>
+            </div>
+          </div>
+        {% else %}
+          <div class="tab-pane fade" id="nav-{{tab}}" role="tabpanel" aria-labelledby="nav-{{tab}}-tab">
+            <div class="row">
+              <div class="col-md-6">
+                <p style="color:#FFFFFF; font-size:16px">
+                  {{Assessment_paragrap_1}}
+                </p>
+                <p style="color:#FFFFFF; font-size:16px">
+                  {{Assessment_paragrap_2}}
+                </p>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        {%set n = list|length %}
+        {% for index,item in enumerate(list) %}
+          {%if index == n//2 %}
+            <div class="w-100"></div>
+          {%endif%}
+          {% set btn = item.replace(" ","-") %}
+          {% if loop.index == 1 %}
+            <button class="nav-link active me-3 mb-3" style = "{{btn_style_active}}" id="nav-{{btn}}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{btn}}" type="button" role="tab" aria-controls="nav-{{btn}}" aria-selected="true">{{btn}}</button>
+          {% else %}
+            <button class="assessment nav-link me-3 mb-3" style = "{{btn_style}}"  id="nav-{{btn}}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{btn}}" type="button" role="tab" aria-controls="nav-{{btn}}" aria-selected="false">{{btn}}</button>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </nav>
+  </div>
+</div>

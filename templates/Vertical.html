@@ -1,0 +1,155 @@
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .vertical-slider-body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        font-family: 'DM Sans', sans-serif;
+        padding: 100px 0 50px;
+      
+    }
+
+    .vertical-container-slider {
+        position: relative;
+        transform-style: preserve-3d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1750px;
+        height: 300px;
+      
+    }
+
+    .vertical-cards {
+        position: relative;
+        width: 330px;
+        height: 100%;
+    
+    }
+
+    .vertical-card {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 231px;
+        transition: all .4s ease;
+        cursor: pointer;
+        overflow: hidden;
+      
+        /* Add border to all cards, but make it transparent by default */
+        border: 5px solid transparent;
+        /* Ensure border is included in element size */
+        box-sizing: border-box;
+    }
+
+    .vertical-img-item {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+     
+    }
+
+    #vertical-item-1:checked ~ .vertical-cards #vertical-song-3,
+    #vertical-item-2:checked ~ .vertical-cards #vertical-song-1,
+    #vertical-item-3:checked ~ .vertical-cards #vertical-song-2 {
+        transform: translateY(-260px) scale(0.8);
+        opacity: 0.4;
+        z-index: 0;
+        border-left-color: #333;
+    }
+
+    #vertical-item-1:checked ~ .vertical-cards #vertical-song-2,
+    #vertical-item-2:checked ~ .vertical-cards #vertical-song-3,
+    #vertical-item-3:checked ~ .vertical-cards #vertical-song-1 {
+        transform: translateY(260px) scale(0.8);
+        opacity: 0.4;
+        z-index: 0;
+        border-left-color: #333;
+    }
+
+    #vertical-item-1:checked ~ .vertical-cards #vertical-song-1,
+    #vertical-item-2:checked ~ .vertical-cards #vertical-song-2,
+    #vertical-item-3:checked ~ .vertical-cards #vertical-song-3 {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        z-index: 1;
+        border-right-color: #333;
+    }
+
+    .vertical-control-button {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        background: none;
+        border: none;
+        color: rgba(0, 0, 0, 0.7);
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 2;
+        background-color: rgba(255, 255, 255, 0.5);
+        width: 40px;
+        height: 40px;
+      
+    }
+
+    .vertical-prev-button {
+        top: -40px;
+    }
+
+    .vertical-next-button {
+        bottom: 30px;
+    }
+
+    input[type=radio] {
+        display: none;
+    }
+</style>
+
+<div class="vertical-slider-body">
+    <div class="vertical-container-slider">
+        <input type="radio" name="vertical-slider" id="vertical-item-1" checked>
+        <input type="radio" name="vertical-slider" id="vertical-item-2">
+        <input type="radio" name="vertical-slider" id="vertical-item-3">
+        <div class="vertical-cards">
+            <label class="vertical-card" for="vertical-item-1" id="vertical-song-1">
+                <img class="vertical-img-item" src="static/image/Hbim/Hbim1.png" alt="Image 1">
+            </label>
+            <label class="vertical-card" for="vertical-item-2" id="vertical-song-2">
+                <img class="vertical-img-item" src="static/image/Hbim/Hbim2.png" alt="Image 2">
+            </label>
+            <label class="vertical-card" for="vertical-item-3" id="vertical-song-3">
+                <img class="vertical-img-item" src="static/image/Hbim/Hbim3.png" alt="Image 3">
+            </label>
+        </div>
+        <button class="vertical-control-button vertical-prev-button" onclick="verticalPrevSlide()">&#94;</button>
+        <button class="vertical-control-button vertical-next-button" onclick="verticalNextSlide()">&#118;</button>
+    </div>
+</div>
+
+<script>
+    function verticalChangeSlide(index) {
+        const slides = document.querySelectorAll('input[name="vertical-slider"]');
+        const currentIndex = Array.from(slides).findIndex(slide => slide.checked);
+        const nextIndex = (currentIndex + index + slides.length) % slides.length;
+        slides[nextIndex].checked = true;
+    }
+
+    function verticalPrevSlide() {
+        verticalChangeSlide(-1);
+    }
+
+    function verticalNextSlide() {
+        verticalChangeSlide(1);
+    }
+</script>

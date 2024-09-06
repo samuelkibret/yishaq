@@ -1,0 +1,132 @@
+{% from 'macros.html' import horizontal_component, text_reader_macro %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+
+        {%block title%} {%endblock%}
+    
+    </title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+            scroll-behavior:smooth;
+        }
+        body {
+            position: relative;
+            min-height: 100vh;
+        }
+        .content-wrapper {
+            width: 100%;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        /* Prevent pull-to-refresh on mobile */
+        body {
+            overscroll-behavior-y: contain;
+        }
+        .scroll-margin {
+            scroll-margin-top: 100px; /* value to match header height */
+        }
+        .highlight-wrapper h3 {
+            color: #FFFFFF; /* Default color */
+            transition: color 0.3s ease; /* Smooth transition for color change */
+        }
+    
+        .my-component:target .highlight-wrapper h3 {
+            color: #FFD700; /* Change to gold when targeted */
+            animation: highlight 2s ease-in-out;
+        }
+    
+        @keyframes highlight {
+            0% { color: #FFD700; }
+            50% { color: #FFA500; }
+            100% { color: #FFD700; }
+      
+    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body class="container-fluid px-0">
+
+    {%include 'components/header.html'%}
+
+<main style = "background-color: {% block bg_color %}rgba(174, 167, 53, 1){% endblock %};background-image: url('');">
+
+    {%set btn_style = "max-width: 500px; height: 35px;opacity:0.6;border-radius:15px;box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);font-family: Inter;font-size: 16px;font-weight: 400;line-height: 19.36px;text-align: center; color:rgba(255, 255, 255, 1)"%}
+    {%set btn_style_active = "max-width: 500px; height: 35px;opacity:1;border-radius:15px;box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);font-family: Inter;font-size: 16px;font-weight: 400;line-height: 19.36px;text-align: center; color:rgba(0, 0, 0, 1)"%}
+
+    <div style="color:#FFFFFF;margin-left:auto; text-align:left;width:600px; background: linear-gradient(270deg, rgba(174, 167, 53, 0.33) 0%, rgba(0, 0, 0, 0.33) 100%);height:50px; border-radius:75px;display: flex;align-items: center;">
+        <p class="ms-3">
+            <i><b>Port City Of Massawa</b></i>
+            ER-ER-OM city passport
+        </p>
+    </div>
+    <div class="mt-3 me-3" style="color:#FFFFFF;background:rgba(135, 129, 41, 1);width: 125px;height: 30px;border-radius: 25px 0px 25px 0px;opacity: 0px;display:flex;align-items:center;justify-Content:center; margin-left:auto">
+        <b>Contents</b>
+    </div>
+
+            {%set gradient = 'linear-gradient(270deg, rgba(0, 0, 0, 0.33) 0%, rgba(174, 167, 53, 0.33) 100%)'%}
+    
+
+    <!-- Display each component -->
+    <div class="container-fluid">
+        <div class="row">
+        <!-- Main components -->
+        <div class="col-12 mx-auto col-md-9">
+            {% for key in Base["component_main_names"].keys() %}
+            <div class="my-component scroll-margin" id = {{key}}>
+                <!-- Add component content here -->
+                <div class="highlight-wrapper">
+                <h3 class="text-center" style="color:#FFFFFF" >{{key}}</h3>
+                </div>
+                {%include 'components/main_components/' + key + '.html'%}
+            </div>
+            {% endfor %}
+        </div>
+    
+        <!-- Side components -->
+        <div class="col-12 mx-auto col-md-3 d-flex flex-column" style="min-height: 100vh;">
+            <div class="flex-grow-1">
+                {% for key in Base["component_side_names"].keys() %}
+                    {% if key not in ['Sources', 'Remarks'] %}
+                        <div class="my-component scroll-margin" id="{{ key }}">
+                            <div class="highlight-wrapper">
+                                <h3 class="text-center" style="color:#FFFFFF">{{ key }}</h3>
+                            </div>
+                            {% include 'components/side_components/' + key + '.html' %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+                <!-- this is to send the remarks and sources components to the bottom of the column -->
+            <div class="mt-auto">
+                {% for key in ['Sources', 'Remarks'] %}
+                    {% if key in Base["component_side_names"].keys() %}
+                        <div class="my-component scroll-margin" id="{{ key }}">
+                            <div class="highlight-wrapper">
+                                <h3 class="text-center" style="color:#FFFFFF">{{ key }}</h3>
+                            </div>
+                            {% include 'components/side_components/' + key + '.html' %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+            <!-- End side components -->
+    </div>
+    </div>
+    
+</main>
+<footer>
+    {%include 'components/footer.html'%}
+</footer>
+ 
+</body>

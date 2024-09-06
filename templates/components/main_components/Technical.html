@@ -1,0 +1,40 @@
+{%set list = Base['component_main_names']['Technical']%}
+<div class="mb-3 border-0 rounded-top-right rounded-bottom-left"  style="max-width:1352px; max-height:426; background-image:{{gradient}};Border-radius:0px 50px 50px 0px">
+      <div class="tab-content pb-5 pt-3" id="nav-tabContent">
+        {%for panel in list%}
+          {%set tab = panel.replace(" " , "-")%}
+          {%if loop.index == 1%}
+              <div class="tab-pane fade show active" id="nav-{{tab}}" role="tabpanel" aria-labelledby="nav-{{tab}}-tab">
+                <div class="row">
+                  <div class="col-md-6 d-flex align-items-center">
+                    <div class = "d-flex align-items-center justify-content-center" style = "width:800px; height: 350px;background-color:rgba(255, 255, 255, 0.08); border-radius:50px">
+                      {{ horizontal_component(img['Technical']['Ratings'],'Ratings') }}
+                    </div> 
+                  </div>
+                  <div class="col-md-6 d-flex align-items-center ps-2">
+                    {{ text_reader_macro( txt['Technical']['Ratings'][0]) }}
+                  </div>
+              </div>
+            </div>
+          {%else%}
+              <div class="tab-pane fade" id="nav-{{tab}}" role="tabpanel" aria-labelledby="nav-{{tab}}-tab">{{tab}}</div>
+          {%endif%}
+        {%endfor%} 
+      </div>
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          {%set n = list|length%}
+          {%for index,item in enumerate(list)%}
+            {%if index == n//2%}
+              <div class="w-100"></div>
+            {%endif%}
+            {%set btn = item.replace(" ","-")%}
+            {%if loop.index == 1%}
+                <button style = "{{btn_style_active}}" class="nav-link active mb-3 me-3" id="nav-{{btn}}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{btn}}" type="button" role="tab" aria-controls="nav-{{btn}}" aria-selected="true">{{btn}}</button>
+            {% else %}
+            <button style = "{{btn_style}}" class="nav-link mb-3 me-3" id="nav-{{btn}}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{btn}}" type="button" role="tab" aria-controls="nav-{{btn}}" aria-selected="false">{{btn}}</button>
+            {%endif%}
+          {% endfor %}
+        </div>
+      </nav>
+</div>

@@ -1,0 +1,23 @@
+{%set img_style ="width:264px; height:210px; border-radius:15px; display:inline_block" %}
+{%set txt_style = "color:rgba(255, 255, 255, 1); width:56px; height:19px" %}
+<div class="border-0" style="max-height: none; max-width: 344px; background-image:{{gradient}}">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button style = "{{btn_style_active}}"  class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Model Classes</button>
+    </li>
+    <button class="control-button next-button" style="top :1270px; left:1020px; height:60px">&#62;</button>
+  </ul>
+  <div class="tab-content mx-auto" id="myTabContent">
+    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+      <p style="text-align: center; color:rgba(255, 255, 255, 1)">The 3D city model of Massawa consists of four classes of models</p>
+      <p style={{txt_style}}>Class 1<p>
+      <div class="mb-3" style="text-align: center;"><img style={{img_style}} src='static/image/Buildings/Buildings-1.png'/></div>
+      <p style={{txt_style}}>Class 2</p>
+      <div class="mb-3" style="text-align: center;"><img style={{img_style}} src='static/image/Buildings/Buildings-2.png'/></div>
+      <p style={{txt_style}}>Class 3</p>
+      <div class="mb-3" style="text-align: center;"><img style={{img_style}} src='static/image/Buildings/Buildings-3.png'/></div>
+      <p style={{txt_style}}>Class 4</p>
+      <div style="text-align: center;"><img style={{img_style}} src='static/image/Buildings/Buildings-4.png'/></div>
+    </div>
+  </div>
+</div>

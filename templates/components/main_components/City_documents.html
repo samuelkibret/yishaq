@@ -1,0 +1,70 @@
+{% from 'macros.html' import horizontal_component %}
+{%set list = Base['component_main_names']['City_documents']%}
+<div class="mb-3 border-0 rounded-top-right rounded-bottom-left" style="max-width:1352px; max-height:none; background-image:{{gradient}}; border-radius:0px 50px 50px 0px">
+      <div class="tab-content pb-5 pt-3" id="nav-tabContent">
+        {% for panel in list %}
+        {% set tab = panel.replace(" " , "-") %}
+        {% if loop.index == 1 %}
+            <div class="tab-pane fade show active" id="nav-{{tab}}" role="tabpanel" aria-labelledby="nav-{{tab}}-tab">
+            <div class="row">
+                <div class="col-md-6 d-flex align-items-center"> 
+                  <div class = "d-flex align-items-center justify-content-center" style = "width:700px; height: 350px;background-color:rgba(255, 255, 255, 0.08); border-radius:50px">
+                  {{ horizontal_component(img['City_documents']['Land Use'],'City_documents') }}
+                  </div>
+                </div>
+                <div class="col-md-6 d-flex flex-column align-items-center ps-2" style = "color:#FFFFFF">
+                    <div>
+                      <p style="color:#FFFFFF">Legend</p>
+                      <div style="display: flex; align-items: center;">
+                        <span style="display: inline-block; width: 36px; height: 14px; border-radius: 6px; background:rgba(237, 30, 36, 1); margin-right: 10px;"></span>
+                        <span>Commercial</span>
+                      </div>
+                      <div style="display: flex; align-items: center;">
+                        <span style="display: inline-block; width: 36px; height: 14px; border-radius: 6px; background:rgba(253, 175, 23, 1); margin-right: 10px;"></span>
+                        <span>Mixed</span>
+                      </div>
+                      <div style="display: flex; align-items: center;">
+                        <span style="display: inline-block; width: 36px; height: 14px; border-radius: 6px; background:rgba(239, 234, 39, 1); margin-right: 10px;"></span>
+                        <span>Residential</span>
+                      </div>
+                      <div style="display: flex; align-items: center;">
+                        <span style="display: inline-block; width: 36px; height: 14px; border-radius: 6px; background:rgba(179, 179, 179, 1); margin-right: 10px;"></span>
+                        <span>Religious</span>
+                      </div>
+                      <div style="display: flex; align-items: center;">
+                        <span style="display: inline-block; width: 36px; height: 14px; border-radius: 6px; background:rgba(87, 188, 234, 1); margin-right: 10px;"></span>
+                        <span>Educational</span>
+                      </div>
+                      <div style="display: flex; align-items: center;">
+                        <span style="display: inline-block; width: 36px; height: 14px; border-radius: 6px; background:rgba(136, 198, 65, 1); margin-right: 10px;"></span>
+                        <span>Not in Use</span>
+                      </div>
+                    </div>
+                    <div>
+                      <p>Massawa showcases a blend of residential neighborhoods, mixed use, commercial districts, several mosques, and vibrant waterfront areas. Its land use reflects different land use embedded in the historic landscape. This uses have evolved in time with some currently abandoned with no function.</p>
+                    </div>
+                 </div>
+            </div>            
+            </div>
+        {% else %}
+            <div class="tab-pane fade" id="nav-{{tab}}" role="tabpanel" aria-labelledby="nav-{{tab}}-tab">{{tab}}</div>
+        {% endif %}
+      {% endfor %}
+      </div>
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          {%set n = list|length%}
+          {% for index,item in enumerate(list) %}
+            {% if index == n//2 %}
+              <div class="w-100"></div>
+            {%endif%}
+            {% set btn = item.replace(" ","-") %}
+            {% if loop.index == 1 %}
+                <button style="{{btn_style_active}}" class="nav-link active me-3 mb-3" id="nav-{{btn}}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{btn}}" type="button" role="tab" aria-controls="nav-{{btn}}" aria-selected="true">{{btn}}</button>
+            {% else %}
+                <button style="{{btn_style}}" class="nav-link me-3 mb-3" id="nav-{{btn}}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{btn}}" type="button" role="tab" aria-controls="nav-{{btn}}" aria-selected="false">{{btn}}</button>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </nav>
+</div>

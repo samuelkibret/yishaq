@@ -1,0 +1,21 @@
+{% set links_left = Base['component_main_names'].keys() %}
+{% set links_right = Base['component_side_names'].keys() %}
+
+{% set menu_style_base = "width: 130px; height: 35px; border-radius: 15px 0px 15px 0px; color: #FFFFFF; background-color: rgba(255, 255, 255, 0.1);" %}
+{% set menu_style_left = menu_style_base + " text-align: center;" %}
+{% set menu_style_right = menu_style_base + " text-align: center;" %}
+
+<div class="container-fluid" style="background: linear-gradient(to bottom, rgba(174, 167, 53, 0.33) 0%, rgba(0, 0, 0, 0.33) 23.59%, rgba(0, 0, 0, 0.33) 85.61%, rgba(174, 167, 53, 0.33) 100%);">
+  <div class="row justify-content-between">
+    <div class="col-md-6 d-flex flex-column align-items-start">
+      {% for link in links_left %}
+      <a href="#{{link}}" class="btn mb-1 " style="{{ menu_style_left | e }}">{{ link }}</a>
+      {% endfor %}
+    </div>
+    <div class="col-md-6 d-flex flex-column align-items-end">
+      {% for link in links_right %}
+      <a href="#{{link}}" class="btn mb-1 text-wrap" style="{{ menu_style_right | e }}">{{ link }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
