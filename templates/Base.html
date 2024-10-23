@@ -47,7 +47,7 @@
             0% { color: #FFD700; }
             50% { color: #FFA500; }
             100% { color: #FFD700; }
-      
+        }
     </style>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -58,7 +58,7 @@
 
     {%include 'components/header.html'%}
 
-<main style = "background-color: { % block bg_color %}rgba(174, 167, 53, 1){% endblock %};background-image: url('');">
+    <main style = "background-color: rgba(174, 167, 53, 1);background-image: url('');">
 
     {%set btn_style = "max-width: 500px; height: 35px;opacity:0.6;border-radius:15px;box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);font-family: Inter;font-size: 16px;font-weight: 400;line-height: 19.36px;text-align: center; color:rgba(255, 255, 255, 1)"%}
     {%set btn_style_active = "max-width: 500px; height: 35px;opacity:1;border-radius:15px;box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);font-family: Inter;font-size: 16px;font-weight: 400;line-height: 19.36px;text-align: center; color:rgba(0, 0, 0, 1)"%}
@@ -124,9 +124,8 @@
     </div>
     </div>
     
-</main>
-<footer>
+    </main>
+    <footer>
     {%include 'components/footer.html'%}
-</footer>
- 
+    </footer>
 </body>
