@@ -1,7 +1,7 @@
 Base_txt = {
                 'General':['text/General/General1.txt'],
                 'History':{
-                        'Site History':[],
+                        'Site History':['text/History/Site-History1.txt'],
                         'Associations':[], 
                         'Time Line':[],
                         'Documentation':[], 
@@ -125,7 +125,7 @@ Base_txt = {
 Building_txt =  {
                 'General':['text/General/General2.txt'],
                 'History':{
-                        'Site History':[],
+                        'Site History':['text/History/Site-History2.txt'],
                         'Associations':[], 
                         'Time Line':[],
                         'Documentation':[], 
@@ -250,7 +250,7 @@ Building_txt =  {
 Elements_txt =  {
                 'General':['text/General/General3.txt'],
                 'History':{
-                        'Site History':[],
+                        'Site History':['text/History/Site-History3.txt'],
                         'Associations':[], 
                         'Time Line':[],
                         'Documentation':[], 
@@ -375,7 +375,7 @@ Elements_txt =  {
 Material_txt =  {
                 'General':['text/General/General4.txt'],
                 'History':{
-                        'Site History':[],
+                        'Site History':['text/History/Site-History4.txt'],
                         'Associations':[], 
                         'Time Line':[],
                         'Documentation':[], 

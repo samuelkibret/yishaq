@@ -1,7 +1,7 @@
 Base_img =  {
                 'General':['static/image/General/General1.png'],
                 'History':{
-                        'Site History':[],
+                        'Site History':['static/image/History/Evolution.png'],
                         'Associations':[], 
                         'Time Line':[],
                         'Documentation':[], 
@@ -29,7 +29,7 @@ Base_img =  {
                         'Other Characterstics':[]
                             },
                 'City_documents':{
-                        'Land Use':['image/Buildings/Buildings-1.png','image/Buildings/Buildings-2.png','image/Buildings/Buildings-3.png'],
+                        'Land Use':['static/image/City_documents/City_documents.png'],
                         'Building Heights':[],
                         'Amenities':[],
                         'Valuable Buildings':[],
@@ -126,7 +126,7 @@ Base_img =  {
 Building_img =  {
                 'General':['static/image/General/General2.png'],
                 'History':{
-                        'Site History':[],
+                        'Site History':['static/image/History/Evolution.png'],
                         'Associations':[], 
                         'Time Line':[],
                         'Documentation':[], 
@@ -154,7 +154,7 @@ Building_img =  {
                         'Other Characterstics':[]
                             },
                 'City_documents':{
-                        'Land Use':[],
+                        'Land Use':['static/image/City_documents/City_documents.png'],
                         'Building Heights':[],
                         'Amenities':[],
                         'Valuable Buildings':[],
@@ -251,7 +251,7 @@ Building_img =  {
 Elements_img =  {
                 'General':['static/image/General/General3.png'],
                 'History':{
-                        'Site History':[],
+                        'Site History':['static/image/History/Evolution.png'],
                         'Associations':[], 
                         'Time Line':[],
                         'Documentation':[], 
@@ -259,7 +259,7 @@ Elements_img =  {
                         'Others':[]
                            },
                 'Characterstics':{
-                        'Relations':[],
+                        'Relations':['image/Characterstics/Characterstics1.png' , 'image/Characterstics/Characterstics2.png','image/Characterstics/Characterstics3.png'],
                         'Infrastructure':[],
                         'State':[],
                         'Plan':[],
@@ -279,7 +279,7 @@ Elements_img =  {
                         'Other Characterstics':[]
                             },
                 'City_documents':{
-                        'Land Use':[],
+                        'Land Use':['static/image/City_documents/City_documents.png'],
                         'Building Heights':[],
                         'Amenities':[],
                         'Valuable Buildings':[],
@@ -290,7 +290,7 @@ Elements_img =  {
                         'Other Layers':[]
                                   },
                 'Environmental':{
-                        'Energy':[],
+                        'Energy':['image/Environmental/environmental1.png','image/Environmental/environmental2.png','image/Environmental/environmental3.png'],
                         'Thermal':[],
                         'Wind':[],
                         'Humidity':[],
@@ -376,7 +376,7 @@ Elements_img =  {
 Material_img =  {
                 'General':['static/image/General/General4.png'],
                 'History':{
-                        'Site History':[],
+                        'Site History':['static/image/History/Evolution.png'],
                         'Associations':[], 
                         'Time Line':[],
                         'Documentation':[], 
@@ -404,7 +404,7 @@ Material_img =  {
                         'Other Characterstics':[]
                             },
                 'City_documents':{
-                        'Land Use':[],
+                        'Land Use':['static/image/City_documents/City_documents.png'],
                         'Building Heights':[],
                         'Amenities':[],
                         'Valuable Buildings':[],
@@ -415,7 +415,7 @@ Material_img =  {
                         'Other Layers':[]
                                   },
                 'Environmental':{
-                        'Energy':[],
+                        'Energy':['image/Environmental/environmental1.png','image/Environmental/environmental2.png','image/Environmental/environmental3.png'],
                         'Thermal':[],
                         'Wind':[],
                         'Humidity':[],

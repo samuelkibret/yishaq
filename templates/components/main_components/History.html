@@ -1,53 +1,43 @@
 {%set list = Base['component_main_names']['History']%}
-{%set text1 = 'Massawa served as the capital of Eritrea during the early years of the Italian colonization from 1890 up to 1899. Various history books indicate that the name Massawa was derived from an Arabic word, ‘Messewa’e’. It also narrates the story of the people from Rie’si Midri, who used to scream over the sea to communicate with their counterparts in Grar, who were located a few meters away but separated by the sea. Oral traditions also say that the first dwellers of Massawa were called the ‘Massawas’, which was later adopted to Mit’siwae. On the other hand, the name Batsi’e, another name for Mit’siwae, was frequently mentioned in some Arab writings around the 8th Century AD. Although Dahlak served as the centre of coastal civilization between the 8th and the 14th Century AD after Adulis was dissolved, Massawa, with its deep sea shores and favourable docking areas, started to develop as a port city from the 15th Century.'%}
-{%set text2 = 'Massawa has witnessed a handful of historic junctures in its existence. Massawa was little more than a seaside village, lying in lands that pertained to the Kingdom of Axum in ancient times and overshadowed by the nearby port of Adulis. Following the fall of Axum in the 8th century, the area around Massawa became embattled by the Islamic forces emerging in the region (Arabs and later Beja peoples) and mutually rival post-Axumite Christian forces from the region of Midri-Bahri, a Kingdom in Eritrea. The port of Massawa on the Red Sea served countless traders over the centuries when the Ottomans, Egypt, and, more recently, Italy ruled it. The city’s complex history is evident in its buildings, including Ottoman fortifications and the sixteenth-century Sheik Hamal Mosque.
-more ...'%}
+<div class="mb-3 border-0 rounded-top-right rounded-bottom-left"  style="max-width:1098; max-height:413; background-image:{{gradient}} ; Border-radius:0px 50px 50px 0px">
 
-<div class="mb-3"  style="color:#FFFFFF;max-width:1352px; max-height:426; background-image:{{gradient}}; border-radius:0px 50px 50px 0px">
-      <div class="tab-content" id="nav-tabContent">
-        {%for panel in list%}
-        {%set tab = panel.replace(" " , "-")%}
-        {%if loop.index == 1%}
-            <div class="tab-pane fade show active p-3" id="nav-{{tab}}" role="tabpanel" aria-labelledby="nav-{{tab}}-tab">
-              <p>
-              {{text1}}
-              </p>
-              <p>
-              {{text2}}
-              </p>
+  <div class="tab-content" id="nav-tabContent">
+    {%for panel in list%}
+    {%set tab = panel.replace(" " , "-")%}
+    {%if loop.index == 1%}
+        <div class="tab-pane fade show active" id="nav-{{tab}}" role="tabpanel" aria-labelledby="nav-{{tab}}-tab">
+             <div class="row">
+                <div class="col-md-6 d-flex align-items-center">
+                  <div class = "d-flex align-items-center justify-content-center" style = "width:800px; height: 350px;background-color:rgba(255, 255, 255, 0.08); border-radius:50px">
+                    <img src="{{img['History']['Site History'][0]}}" class="img-fluid w-100 h-100" alt="Image" style="object-fit: contain; object-position: center;">
+                  </div>
+                </div>
+                <div class="col-md-6 ps-2" style="color: #FFFFFF;">
+                  {{text_reader_macro(txt['History']['Site History'][0])}}
+                </div>
             </div>
-          
-        {%else%}
-            <div class="tab-pane fade p-3" id="nav-{{tab}}" role="tabpanel" aria-labelledby="nav-{{tab}}-tab">
-              <p>
-              {{text1}}
-              </p>
-              <p>
-              {{text2}}
-              </p>
-            </div>
-        {%endif%}
-      {%endfor%}
-   
-      </div>
-      <!--tabs-->
-      <nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          {%set n = list|length%}
-          {%for index , item in enumerate(list) %}
-            {%if index == n//2 %}
-              <div class="w-100"></div>
-            {%endif%}
-            {%set btn = item.replace(" ","-")%}
-            {%if loop.index == 1%}
-                <button class="nav-link active d-flex justify-content-center Align-Items-center me-5 mt-3 mb-2" style = "{{btn_style}}" id="nav-Site-History-tab" data-bs-toggle="tab" data-bs-target="#nav-Site-History" type="button" role="tab" aria-controls="nav-Site-History" aria-selected="true">{{btn}}</button>
-            {% elif loop.index == 3%}
-                <button class="nav-link d-flex justify-content-center Align-items-center me-5 mt-3 mb-2"  style = "{{btn_style}}" id="nav-Time-Line-tab" data-bs-toggle="tab" data-bs-target="#nav-Time-Line" type="button" role="tab" aria-controls="nav-Time-Line" aria-selected="false">{{btn}}</button>
-            {% else %}
-            <button class="nav-link d-flex justify-content-center Align-items-center me-5 mt-3 mb-2" style = "{{btn_style}}" id="nav-{{btn}}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{btn}}" type="button" role="tab" aria-controls="nav-{{btn}}" aria-selected="false">{{btn}}</button>
-            {%endif%}
-          {% endfor %}
-        
         </div>
-      </nav>
+
+    {%else%}
+        <div class="tab-pane fade" id="nav-{{tab}}" role="tabpanel" aria-labelledby="nav-{{tab}}-tab">{{tab}}</div>
+    {%endif%}
+  {%endfor%}
+  </div>
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      {% set n = list|length %}
+      {%for index,item in enumerate(list)%}
+        {%if index == n // 2 %}
+          <div class="w-100"></div>
+        {%endif%}
+        {%set btn = item.replace(" ","-")%}
+        {%if loop.index == 1%}
+            <button style = "{{btn_style_active}}" class="nav-link active me-3 mb-3" id="nav-{{btn}}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{btn}}" type="button" role="tab" aria-controls="nav-{{btn}}" aria-selected="true">{{btn}}</button>
+        {% else %}
+        <button style = "{{btn_style}}" class="nav-link me-3 mb-3" id="nav-{{btn}}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{btn}}" type="button" role="tab" aria-controls="nav-{{btn}}" aria-selected="false">{{btn}}</button>
+        {%endif%}
+      {% endfor %}
+    </div>
+  </nav>
+
 </div>

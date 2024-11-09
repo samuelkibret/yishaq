@@ -1,15 +1,14 @@
-<div class="mb-3" style="max-width:1352px; max-height:426px; background-image: {{gradient}};border-radius:0px 50px 50px 0px">
+<div class="mb-3" style="max-width:1352px; max-height:500px; background-image: {{gradient}};border-radius:0px 50px 50px 0px">
    <<div class="row">
     <!-- Image Column -->
-    <div class="col-md-5"> <!-- Set a fixed height container -->
-      <img src="{{img['General'][0]}}"" class="img-fluid w-100 h-100" alt="Image" style="object-fit: contain; object-position: center;">
+    <div class="col-md-6"> <!-- Set a fixed height container -->
+      <img src="{{img['General'][0]}}" class="img-fluid w-100 h-100" alt="Image" style="object-fit: contain; object-position: center;">
     </div>
   
     <!-- Text and Button Column -->
-    <div class="col-md-7 flex-column align-items-start justify-content-center">
+    <div class="col-md-6 ps-2 flex-column align-items-start justify-content-center">
       <div style="max-width: 500px; text-wrap: wrap; color: #FFFFFF;">
           {{text_reader_macro(txt['General'][0])}}
-      
       </div>
   
       <!-- More Button -->
