@@ -2,25 +2,14 @@
    <<div class="row">
     <!-- Image Column -->
     <div class="col-md-5"> <!-- Set a fixed height container -->
-      <img src="static/image/general/General.png" class="img-fluid w-100 h-100" alt="Image" 
-           style="object-fit: contain;
-                  object-position: center;">
+      <img src="{{img['General'][0]}}"" class="img-fluid w-100 h-100" alt="Image" style="object-fit: contain; object-position: center;">
     </div>
   
     <!-- Text and Button Column -->
     <div class="col-md-7 flex-column align-items-start justify-content-center">
       <div style="max-width: 500px; text-wrap: wrap; color: #FFFFFF;">
-        <p ">
-          <strong>Name of site:</strong> Port city of Massawa<br>
-          <strong>Reference number:</strong> ER-OM<br>
-          <strong>National references:</strong> ER-ER-OM<br>
-          <strong>Location:</strong> 15.6080° N, 39.4531° E<br>
-          <strong>Heritage Category:</strong> Urban heritage<br>
-          <strong>Description:</strong> Massawa was a crucial diplomatic, military, and political realm for several countries to influence the Red Sea region and establish contact.<br>
-          <strong>Date:</strong> The construction of the first mosque in the 7th century and first-known buildings during the initial period of Turkish domination.<br>
-          <strong>Significance:</strong> The site’s long-term association with the Ottomans, Egyptians, and Italians created a unique urban heritage site.<br>
-          <strong>Interesting aspects:</strong> Densely planned urban form; arched paths; covered bazaar; mashrabias; historic mosques.
-        </p>
+          {{text_reader_macro(txt['General'][0])}}
+      
       </div>
   
       <!-- More Button -->

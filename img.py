@@ -1,5 +1,5 @@
 Base_img =  {
-                'General':[],
+                'General':['static/image/General/General1.png'],
                 'History':{
                         'Site History':[],
                         'Associations':[], 
@@ -124,7 +124,7 @@ Base_img =  {
     
     }
 Building_img =  {
-                'General':[],
+                'General':['static/image/General/General2.png'],
                 'History':{
                         'Site History':[],
                         'Associations':[], 
@@ -249,7 +249,7 @@ Building_img =  {
     
     }
 Elements_img =  {
-                'General':[],
+                'General':['static/image/General/General3.png'],
                 'History':{
                         'Site History':[],
                         'Associations':[], 
@@ -374,7 +374,7 @@ Elements_img =  {
     
     }
 Material_img =  {
-                'General':[],
+                'General':['static/image/General/General4.png'],
                 'History':{
                         'Site History':[],
                         'Associations':[], 

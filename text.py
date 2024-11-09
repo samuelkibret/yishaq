@@ -1,5 +1,5 @@
 Base_txt = {
-                'General':[],
+                'General':['text/General/General1.txt'],
                 'History':{
                         'Site History':[],
                         'Associations':[], 
@@ -123,7 +123,7 @@ Base_txt = {
                 'Remarks':{}
          }
 Building_txt =  {
-                'General':[],
+                'General':['text/General/General2.txt'],
                 'History':{
                         'Site History':[],
                         'Associations':[], 
@@ -248,7 +248,7 @@ Building_txt =  {
     
     }
 Elements_txt =  {
-                'General':[],
+                'General':['text/General/General3.txt'],
                 'History':{
                         'Site History':[],
                         'Associations':[], 
@@ -373,7 +373,7 @@ Elements_txt =  {
     
     }
 Material_txt =  {
-                'General':[],
+                'General':['text/General/General4.txt'],
                 'History':{
                         'Site History':[],
                         'Associations':[], 
