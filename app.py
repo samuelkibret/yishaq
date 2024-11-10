@@ -43,7 +43,7 @@ def Materials():
    return render_template('Materials.html',Base = Material_btns , img = Material_img ,txt = Material_txt,enumerate=enumerate)
 @app.route('/About')
 def About():
-   return render_template('horizontal.html', images = images)
+   return render_template('About.html', images = images)
 @app.route('/Search')
 def Search():
    return render_template('404.html' , images = images)
