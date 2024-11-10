@@ -9,7 +9,7 @@
           {{btn}}
         </button>
       {% endfor %}
-      <button class="control-button next-button" style="top :3453px; left:1060px;width:30px height:70px">&#62;</button>
+      <button class="control-button next-button" style="top :3470px; left:1060px;width:30px height:70px">&#62;</button>
     </div>
   </nav>
 
@@ -21,7 +21,7 @@
         <!-- Carousel -->
         <img src="{{img['Materials']['Types of Materials'][0]}}" alt="" style="width:270px; height:170px;">
         <!-- Text content -->
-        <div>
+        <div class="me-2 ms-2">
             {% if loop.index == 1 %}
               {{text_reader_macro(txt['Materials']['Types of Materials'][0])}}
             {% endif %}

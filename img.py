@@ -384,7 +384,7 @@ Material_img =  {
                         'Others':[]
                            },
                 'Characterstics':{
-                        'Relations':[],
+                        'Relations':['image/Characterstics/Characterstics1.png' , 'image/Characterstics/Characterstics2.png','image/Characterstics/Characterstics3.png'],
                         'Infrastructure':[],
                         'State':[],
                         'Plan':[],

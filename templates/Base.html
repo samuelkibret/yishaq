@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
 
-        {%block title%} {%endblock%}
+        {%block title%} City {%endblock%}
     
     </title>
     <style>
@@ -54,20 +54,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
-<body class="container-fluid px-0">
+<body class="container-fluid px-0" style = "background-color: {%block bg_color%} rgba(174, 167, 53, 1) {% endblock %};background-image: url('');">
 
     {%include 'components/header.html'%}
-
-    <main style = "background-color: {%block bg_color%} rgba(174, 167, 53, 1) {% endblock %};background-image: url('');">
 
     {%set btn_style = "max-width: 500px; height: 35px;opacity:0.6;border-radius:15px;box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);font-family: Inter;font-size: 16px;font-weight: 400;line-height: 19.36px;text-align: center; color:rgba(255, 255, 255, 1)"%}
     {%set btn_style_active = "max-width: 500px; height: 35px;opacity:1;border-radius:15px;box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);font-family: Inter;font-size: 16px;font-weight: 400;line-height: 19.36px;text-align: center; color:rgba(0, 0, 0, 1)"%}
 
-    <div style="color:#FFFFFF;margin-left:auto; text-align:left;width:600px; background: linear-gradient(270deg, rgba(174, 167, 53, 0.33) 0%, rgba(0, 0, 0, 0.33) 100%);height:50px; border-radius:75px;display: flex;align-items: center;">
-        <p class="ms-3">
-            <i><b>Port City Of Massawa</b></i>
-            ER-ER-OM city passport
-        </p>
+    <div class = "mt-3" style="color:#FFFFFF;margin-left:auto; text-align:left;width:600px; background: linear-gradient(270deg, rgba(174, 167, 53, 0.33) 0%, rgba(0, 0, 0, 0.33) 100%);height:50px; border-radius:75px;display: flex;align-items: center;">
+        {%block city_passport%}
+            <p class="ms-3">
+                <i><b>Port City Of Massawa</b></i>
+                ER-ER-OM city passport
+            </p>
+        {%endblock%}
     </div>
     <div class="mt-3 me-3" style="color:#FFFFFF;background:rgba(135, 129, 41, 1);width: 125px;height: 30px;border-radius: 25px 0px 25px 0px;opacity: 0px;display:flex;align-items:center;justify-Content:center; margin-left:auto">
         <b>Contents</b>

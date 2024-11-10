@@ -47,6 +47,7 @@ Buildings_btns =  {
         {
                 'menu':[],
                 'events':['Armed Conflicts'],
+                'Buildings':[],
                 'elements_and_hbim':[],
                 'Materials':['Types of Materials'],
                 'Sources':[],
@@ -74,6 +75,7 @@ Elements_btns =  {
         {
                 'menu':[],
                 'events':['Armed Conflicts'],
+                'Buildings':[],
                 'elements_and_hbim':[],
                 'Materials':['Types of Materials'],
                 'Sources':[],
@@ -86,6 +88,7 @@ Material_btns =  {
         {
                 'General':[],
                 'History':['Site History' , 'Associations' , 'Time Line' , 'Documentation' , 'Change' , 'Others'],
+                'Characterstics':['Relations' , 'Infrastructure' , 'State' , 'Plan' , 'Groupings' , 'Spirit of the place'],
                 'Values':['Authenticity' , 'Mastery' , 'Significance' , 'Value' , 'Intangible Values' , 'Architectonics' , 'Identity','Criteria','Aesthetics','Other Characterstics'],
                 'City_documents':['Land Use' , 'Building Heights' , 'Amenities' , 'Valuable Buildings' , 'Existence' , 'Conditions' , 'Sets of Data','System','Other Layers'],
                 'Environmental':['Energy' , 'Thermal' , 'Wind' , 'Humidity' , 'Lighting' , 'Urban Fabrics' , 'Innovation','Measurments','Water','Mobility'],
@@ -100,6 +103,7 @@ Material_btns =  {
         {
                 'menu':[],
                 'events':['Armed Conflicts'],
+                'Buildings':[],
                 'elements_and_hbim':[],
                 'Materials':['Types of Materials'],
                 'Sources':[],

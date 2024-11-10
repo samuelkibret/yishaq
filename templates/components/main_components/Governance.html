@@ -4,7 +4,7 @@
         {%for panel in list%}
           {%set tab = panel.replace(" " , "-")%}
           {%if loop.index == 1%}
-              <div class="tab-pane fade show active" id="nav-{{tab}}" role="tabpanel" aria-labelledby="nav-{{tab}}-tab">
+              <div class="tab-pane fade show active" id="nav-{{tab}}" role="tabpanel" aria-labelledby="nav-{{tab}}-tab" style = "color:white">
 
                 {{text_reader_macro(txt['Governance']['Administrative'][0])}}
 
